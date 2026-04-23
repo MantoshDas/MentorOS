@@ -26,7 +26,7 @@ It uses a **Retrieval-Augmented Generation (RAG)** architecture to ensure respon
 ```mermaid
 flowchart LR
     A[User] --> B[Frontend - Vercel]
-    B --> C[Backend API - Fastify (Render)]
+    B --> C[Backend API Fastify Render]
     C --> D[Qdrant Vector DB]
     C --> E[PostgreSQL]
     D --> C
@@ -171,7 +171,7 @@ npm run dev
 
 ## 👨‍💻 Author
 
-**Mantosh Das**
+**Mantosh Das and Anmol Madhav**
 
 ---
 
