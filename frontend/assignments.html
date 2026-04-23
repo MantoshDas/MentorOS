@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments | UniHelp</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">UniPortal</div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">Dashboard</a>
+            <a href="courses.html" class="nav-item">My Courses</a>
+            <a href="assignments.html" class="nav-item active">Assignments</a>
+            <a href="#" class="nav-item">Exam Schedule</a>
+            <a href="#" class="nav-item">Fee Portal</a>
+            <a href="#" class="nav-item">Library Services</a>
+            <a href="#" class="nav-item">Rulebook</a>
+            <div class="nav-spacer"></div>
+            <a href="index.html" class="nav-item logout" onclick="logout()">Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="search-wrapper">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" placeholder="Search assignments...">
+            </div>
+            <div class="user-profile">
+                <div class="user-info">
+                    <span id="user-name" class="name">Mantosh</span>
+                    <span id="user-role-badge" class="role">Student</span>
+                </div>
+                <div class="avatar" id="avatar-circle">M</div>
+            </div>
+        </header>
+
+        <div class="page-header">
+            <h2>Active Assignments</h2>
+            <div class="header-actions">
+                <button class="btn secondary btn-sm">Filter</button>
+            </div>
+        </div>
+
+        <section class="assignments-list">
+            
+            <div class="assignment-item urgent">
+                <div class="assign-icon">⚠️</div>
+                <div class="assign-details">
+                    <h3>DBMS Project Phase 2</h3>
+                    <span class="assign-course">CS403 • Database Management</span>
+                </div>
+                <div class="assign-status">
+                    <span class="due-date text-danger">Due: Tomorrow, 11:59 PM</span>
+                    <span class="status-badge pending">Pending</span>
+                </div>
+                <div class="assign-action">
+                    <button class="btn btn-sm">Submit Now</button>
+                </div>
+            </div>
+
+            <div class="assignment-item">
+                <div class="assign-icon">📄</div>
+                <div class="assign-details">
+                    <h3>Neural Networks Lab Report</h3>
+                    <span class="assign-course">CS402 • Artificial Intelligence</span>
+                </div>
+                <div class="assign-status">
+                    <span class="due-date">Due: Mar 28, 10:00 AM</span>
+                    <span class="status-badge pending">Pending</span>
+                </div>
+                <div class="assign-action">
+                    <button class="btn secondary btn-sm">View Details</button>
+                </div>
+            </div>
+
+            <div class="assignment-item submitted">
+                <div class="assign-icon">✅</div>
+                <div class="assign-details">
+                    <h3>Software Architecture Diagram</h3>
+                    <span class="assign-course">CS401 • Software Engineering</span>
+                </div>
+                <div class="assign-status">
+                    <span class="due-date text-light">Submitted: Mar 15</span>
+                    <span class="status-badge success">Submitted</span>
+                </div>
+                <div class="assign-action">
+                    <button class="btn-text">View Submission</button>
+                </div>
+            </div>
+
+            <div class="assignment-item graded">
+                <div class="assign-icon">🎓</div>
+                <div class="assign-details">
+                    <h3>Cloud Infrastructure Case Study</h3>
+                    <span class="assign-course">CS404 • Cloud Computing</span>
+                </div>
+                <div class="assign-status">
+                    <span class="due-date text-light">Graded on: Mar 10</span>
+                    <span class="grade-score">Score: 92/100</span>
+                </div>
+                <div class="assign-action">
+                    <button class="btn-text">View Feedback</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="unihelp-widget" class="mentoros-widget">
+        <div class="widget-header">
+            <div class="header-info">
+                <strong>UniHelp Assistant</strong>
+                <div class="online-indicator"><span class="status-dot"></span> Online</div>
+            </div>
+            <button id="close-widget" title="Close chat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        
+        <div id="chat-window" class="widget-chat-window"></div>
+        <div id="loading" class="widget-loading hidden">Searching policies...</div>
+
+        <div id="admin-tools" class="admin-tools hidden">
+            <input type="file" id="file-input" accept=".pdf" hidden>
+            <button id="upload-trigger">📎 Upload Policy PDF</button>
+            <span id="file-ready-text"></span>
+        </div>
+
+        <form id="chat-form" class="widget-input-area">
+            <input type="text" id="user-input" placeholder="Ask about academic rules..." required autocomplete="off">
+            <button type="submit" id="send-btn"></button>
+        </form>
+    </div>
+
+    <button id="widget-toggle" class="widget-toggle-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="toggle-text">Ask UniHelp</span>
+    </button>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

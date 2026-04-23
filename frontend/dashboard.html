@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | UniHelp</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">UniPortal</div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">Dashboard</a>
+            <a href="courses.html" class="nav-item">My Courses</a>
+            <a href="assignments.html" class="nav-item">Assignments</a>
+            <a href="#" class="nav-item">Exam Schedule</a>
+            <a href="#" class="nav-item">Fee Portal</a>
+            <a href="#" class="nav-item">Library Services</a>
+            <a href="#" class="nav-item">Rulebook</a>
+            <div class="nav-spacer"></div>
+            <a href="index.html" class="nav-item logout" onclick="logout()">Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="search-wrapper">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" placeholder="Search courses, faculty, documents or IDs...">
+            </div>
+            <div class="user-profile">
+                <div class="user-info">
+                    <span id="user-name" class="name">Mantosh</span>
+                    <span id="user-role-badge" class="role">Student</span>
+                </div>
+                <div class="avatar" id="avatar-circle">M</div>
+            </div>
+        </header>
+
+        <section class="dashboard-grid">
+            
+            <div class="stat-card">
+                <span class="stat-label">Total Attendance</span>
+                <span class="stat-value">94.2%</span>
+                <div class="progress-bar"><div class="progress" style="width: 94%"></div></div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Cumulative GPA</span>
+                <span class="stat-value">3.85</span>
+                <span class="stat-sub text-success">↑ Top 10% of Class</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Credits Completed</span>
+                <span class="stat-value">98 / 120</span>
+                <div class="progress-bar"><div class="progress" style="width: 81%"></div></div>
+            </div>
+            <div class="stat-card alert-card">
+                <span class="stat-label" style="color: #fff;">Next Deadline</span>
+                <span class="stat-value" style="color: #fff;">Tomorrow</span>
+                <span class="stat-sub" style="color: rgba(255,255,255,0.8);">DBMS Project Report • 11:59 PM</span>
+            </div>
+
+            <div class="content-card span-8">
+                <div class="card-header-flex">
+                    <h3>Weekly Class Schedule</h3>
+                    <button class="btn-text">View Full Calendar →</button>
+                </div>
+                <div class="schedule-grid">
+                    <div class="day-column">
+                        <div class="day-header">Mon</div>
+                        <div class="class-block class-primary">
+                            <span class="time">09:00 - 10:30</span>
+                            <strong>Software Eng.</strong>
+                            <span>Hall 3</span>
+                        </div>
+                        <div class="class-block class-secondary">
+                            <span class="time">11:00 - 12:30</span>
+                            <strong>Art. Intelligence</strong>
+                            <span>Lab 4</span>
+                        </div>
+                    </div>
+                    <div class="day-column">
+                        <div class="day-header">Tue</div>
+                        <div class="class-block class-accent">
+                            <span class="time">10:00 - 11:30</span>
+                            <strong>Database Mgmt</strong>
+                            <span>Room 201</span>
+                        </div>
+                        <div class="class-block class-primary">
+                            <span class="time">14:00 - 16:00</span>
+                            <strong>Network Security</strong>
+                            <span>Lab 2</span>
+                        </div>
+                    </div>
+                    <div class="day-column day-active">
+                        <div class="day-header" style="background: var(--primary); color: white;">Wed (Today)</div>
+                        <div class="class-block class-primary">
+                            <span class="time">09:00 - 10:30</span>
+                            <strong>Software Eng.</strong>
+                            <span>Hall 3</span>
+                        </div>
+                        <div class="class-block class-warning">
+                            <span class="time">13:00 - 15:00</span>
+                            <strong>Cloud Computing</strong>
+                            <span>Lab 1</span>
+                        </div>
+                    </div>
+                    <div class="day-column">
+                        <div class="day-header">Thu</div>
+                        <div class="class-block class-secondary">
+                            <span class="time">09:00 - 11:00</span>
+                            <strong>Art. Intelligence</strong>
+                            <span>Lab 4</span>
+                        </div>
+                        <div class="class-block class-accent">
+                            <span class="time">11:30 - 13:00</span>
+                            <strong>Database Mgmt</strong>
+                            <span>Room 201</span>
+                        </div>
+                    </div>
+                    <div class="day-column">
+                        <div class="day-header">Fri</div>
+                        <div class="class-block class-warning">
+                            <span class="time">10:00 - 12:00</span>
+                            <strong>Cloud Computing</strong>
+                            <span>Lab 1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card span-4 announcements-card">
+                <h3>Campus Announcements</h3>
+                <ul class="announcement-list">
+                    <li>
+                        <div class="tag tag-urgent">Urgent</div>
+                        <div class="announcement-content">
+                            <strong>Semester Fee Deadline</strong>
+                            <p>Clear all pending dues by March 24th to avoid a 5% late penalty.</p>
+                            <span class="date">Posted: Mar 20</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tag tag-event">Event</div>
+                        <div class="announcement-content">
+                            <strong>Annual "Hack-a-Thon"</strong>
+                            <p>Registrations open. Winning prize includes a summer internship interview.</p>
+                            <span class="date">Posted: Mar 18</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tag tag-info">Info</div>
+                        <div class="announcement-content">
+                            <strong>Extended Library Hours</strong>
+                            <p>Library will remain open 24/7 starting next week for finals.</p>
+                            <span class="date">Posted: Mar 15</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content-card span-6">
+                <h3>Subject-wise Attendance</h3>
+                <div class="subject-list">
+                    <div class="sub-item">
+                        <span>Software Engineering</span> 
+                        <div class="sub-item-right"><div class="mini-bar"><div class="mini-fill" style="width: 96%; background: var(--success);"></div></div><span class="val text-success">96%</span></div>
+                    </div>
+                    <div class="sub-item">
+                        <span>Artificial Intelligence</span> 
+                        <div class="sub-item-right"><div class="mini-bar"><div class="mini-fill" style="width: 82%; background: var(--warning);"></div></div><span class="val text-warning">82%</span></div>
+                    </div>
+                    <div class="sub-item">
+                        <span>Network Security</span> 
+                        <div class="sub-item-right"><div class="mini-bar"><div class="mini-fill" style="width: 98%; background: var(--success);"></div></div><span class="val text-success">98%</span></div>
+                    </div>
+                    <div class="sub-item">
+                        <span>Database Management</span> 
+                        <div class="sub-item-right"><div class="mini-bar"><div class="mini-fill" style="width: 95%; background: var(--success);"></div></div><span class="val text-success">95%</span></div>
+                    </div>
+                    <div class="sub-item">
+                        <span>Cloud Computing</span> 
+                        <div class="sub-item-right"><div class="mini-bar"><div class="mini-fill" style="width: 74%; background: var(--danger);"></div></div><span class="val text-danger">74%</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card span-6">
+                <h3>GPA History</h3>
+                <div class="semester-bars">
+                    <div class="sem-bar">
+                        <span class="sem-label">Sem 1</span>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 85%"></div></div>
+                        <span class="sem-val">3.4</span>
+                    </div>
+                    <div class="sem-bar">
+                        <span class="sem-label">Sem 2</span>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 90%"></div></div>
+                        <span class="sem-val">3.6</span>
+                    </div>
+                    <div class="sem-bar">
+                        <span class="sem-label">Sem 3</span>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 95%"></div></div>
+                        <span class="sem-val">3.8</span>
+                    </div>
+                    <div class="sem-bar">
+                        <span class="sem-label">Sem 4</span>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 100%"></div></div>
+                        <span class="sem-val">4.0</span>
+                    </div>
+                    <div class="sem-bar">
+                        <span class="sem-label">Sem 5</span>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 98%"></div></div>
+                        <span class="sem-val">3.9</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="unihelp-widget" class="mentoros-widget">
+        <div class="widget-header">
+            <div class="header-info">
+                <strong>UniHelp Assistant</strong>
+                <div class="online-indicator"><span class="status-dot"></span> Online</div>
+            </div>
+            <button id="close-widget" title="Close chat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        
+        <div id="chat-window" class="widget-chat-window"></div>
+        <div id="loading" class="widget-loading hidden">Searching policies...</div>
+
+        <div id="admin-tools" class="admin-tools hidden">
+            <input type="file" id="file-input" accept=".pdf" hidden>
+            <button id="upload-trigger">📎 Upload Policy PDF</button>
+            <span id="file-ready-text"></span>
+        </div>
+
+        <form id="chat-form" class="widget-input-area">
+            <input type="text" id="user-input" placeholder="Ask about academic rules..." required autocomplete="off">
+            <button type="submit" id="send-btn"></button>
+        </form>
+    </div>
+
+    <button id="widget-toggle" class="widget-toggle-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="toggle-text">Ask UniHelp</span>
+    </button>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

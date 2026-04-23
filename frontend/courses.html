@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses | UniHelp</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">UniPortal</div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">Dashboard</a>
+            <a href="courses.html" class="nav-item active">My Courses</a>
+            <a href="assignments.html" class="nav-item">Assignments</a>
+            <a href="#" class="nav-item">Exam Schedule</a>
+            <a href="#" class="nav-item">Fee Portal</a>
+            <a href="#" class="nav-item">Library Services</a>
+            <a href="#" class="nav-item">Rulebook</a>
+            <div class="nav-spacer"></div>
+            <a href="index.html" class="nav-item logout" onclick="logout()">Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="search-wrapper">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" placeholder="Search courses, faculty, documents or IDs...">
+            </div>
+            <div class="user-profile">
+                <div class="user-info">
+                    <span id="user-name" class="name">Mantosh</span>
+                    <span id="user-role-badge" class="role">Student</span>
+                </div>
+                <div class="avatar" id="avatar-circle">M</div>
+            </div>
+        </header>
+
+        <div class="page-header">
+            <h2>Enrolled Courses (Semester 6)</h2>
+        </div>
+
+        <section class="courses-grid">
+            <div class="course-card">
+                <div class="course-header class-primary">
+                    <span class="course-code">CS401</span>
+                    <h3>Software Engineering</h3>
+                </div>
+                <div class="course-body">
+                    <p class="prof-name">Prof. Alan Davis</p>
+                    <div class="course-progress">
+                        <div class="progress-labels">
+                            <span>Syllabus Completion</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn btn-sm">Course Page</button>
+                        <button class="btn secondary btn-sm">Resources</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-header class-secondary">
+                    <span class="course-code">CS402</span>
+                    <h3>Artificial Intelligence</h3>
+                </div>
+                <div class="course-body">
+                    <p class="prof-name">Dr. Sarah Wilson</p>
+                    <div class="course-progress">
+                        <div class="progress-labels">
+                            <span>Syllabus Completion</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress" style="width: 60%"></div></div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn btn-sm">Course Page</button>
+                        <button class="btn secondary btn-sm">Resources</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-header class-accent">
+                    <span class="course-code">CS403</span>
+                    <h3>Database Management</h3>
+                </div>
+                <div class="course-body">
+                    <p class="prof-name">Prof. Michael Lee</p>
+                    <div class="course-progress">
+                        <div class="progress-labels">
+                            <span>Syllabus Completion</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn btn-sm">Course Page</button>
+                        <button class="btn secondary btn-sm">Resources</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-header class-warning">
+                    <span class="course-code">CS404</span>
+                    <h3>Cloud Computing</h3>
+                </div>
+                <div class="course-body">
+                    <p class="prof-name">Dr. Emily Smith</p>
+                    <div class="course-progress">
+                        <div class="progress-labels">
+                            <span>Syllabus Completion</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress" style="width: 40%"></div></div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn btn-sm">Course Page</button>
+                        <button class="btn secondary btn-sm">Resources</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="unihelp-widget" class="mentoros-widget">
+        <div class="widget-header">
+            <div class="header-info">
+                <strong>UniHelp Assistant</strong>
+                <div class="online-indicator"><span class="status-dot"></span> Online</div>
+            </div>
+            <button id="close-widget" title="Close chat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        
+        <div id="chat-window" class="widget-chat-window"></div>
+        <div id="loading" class="widget-loading hidden">Searching policies...</div>
+
+        <div id="admin-tools" class="admin-tools hidden">
+            <input type="file" id="file-input" accept=".pdf" hidden>
+            <button id="upload-trigger">📎 Upload Policy PDF</button>
+            <span id="file-ready-text"></span>
+        </div>
+
+        <form id="chat-form" class="widget-input-area">
+            <input type="text" id="user-input" placeholder="Ask about academic rules..." required autocomplete="off">
+            <button type="submit" id="send-btn"></button>
+        </form>
+    </div>
+
+    <button id="widget-toggle" class="widget-toggle-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="toggle-text">Ask UniHelp</span>
+    </button>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
